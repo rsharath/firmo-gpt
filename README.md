@@ -24,7 +24,7 @@ https://github.com/mckaywrigley/wait-but-why-gpt.git
 
 ## Contact
 
-If you have any questions, feel free to reach out to me on [Twitter](https://twitter.com/sharathr]
+If you have any questions, feel free to reach out to me on [Twitter](https://twitter.com/sharathr)
 
 ## Notes
 Everything in the homepage component for the sake of simplicity.
