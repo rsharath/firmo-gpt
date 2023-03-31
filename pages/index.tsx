@@ -96,7 +96,7 @@ export default function Home() {
 
     setChunks(results);
 */
-    const results = [];
+    const results : WBWChunk[] = [];
     const prompt = endent`
     Use the following passages to provide an answer to the query: "${query}"
 
