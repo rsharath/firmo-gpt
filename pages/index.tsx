@@ -98,6 +98,8 @@ export default function Home() {
 
     ${results?.map((d: any) => d.content).join("\n\n")}
     `;
+    
+    //const prompt = "${query}";
 
     const answerResponse = await fetch("/api/answer", {
       method: "POST",
@@ -194,10 +196,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Wait But Why GPT</title>
+        <title>Firmo-GPT</title>
         <meta
           name="description"
-          content={`AI-powered search and chat for Tim Urban's blog "Wait But Why."`}
+          content={`AI-powered search for Company Firmographics"`}
         />
         <meta
           name="viewport"
@@ -232,18 +234,6 @@ export default function Home() {
                     <option value="search">Search</option>
                     <option value="chat">Chat</option>
                   </select>
-                </div>
-
-                <div className="mt-2">
-                  <div>Passage Count</div>
-                  <input
-                    type="number"
-                    min={1}
-                    max={10}
-                    value={matchCount}
-                    onChange={(e) => setMatchCount(Number(e.target.value))}
-                    className="max-w-[400px] block w-full rounded-md border border-gray-300 p-2 text-black shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:text-sm"
-                  />
                 </div>
 
                 <div className="mt-2">
@@ -289,7 +279,7 @@ export default function Home() {
                   ref={inputRef}
                   className="h-12 w-full rounded-full border border-zinc-600 pr-12 pl-11 focus:border-zinc-800 focus:outline-none focus:ring-1 focus:ring-zinc-800 sm:h-16 sm:py-2 sm:pr-16 sm:pl-16 sm:text-lg"
                   type="text"
-                  placeholder="What is the Instant Gratification Monkey?"
+                  placeholder="Tell me about Exxon Mobil?"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -319,18 +309,11 @@ export default function Home() {
               <div className="mt-6 w-full">
                 {mode === "chat" && (
                   <>
-                    <div className="font-bold text-2xl">Answer</div>
-                    <div className="animate-pulse mt-2">
-                      <div className="h-4 bg-gray-300 rounded"></div>
-                      <div className="h-4 bg-gray-300 rounded mt-2"></div>
-                      <div className="h-4 bg-gray-300 rounded mt-2"></div>
-                      <div className="h-4 bg-gray-300 rounded mt-2"></div>
-                      <div className="h-4 bg-gray-300 rounded mt-2"></div>
-                    </div>
+                    
                   </>
                 )}
 
-                <div className="font-bold text-2xl mt-6">Passages</div>
+                <div className="font-bold text-2xl mt-6">generating json...</div>
                 <div className="animate-pulse mt-2">
                   <div className="h-4 bg-gray-300 rounded"></div>
                   <div className="h-4 bg-gray-300 rounded mt-2"></div>
@@ -341,42 +324,21 @@ export default function Home() {
               </div>
             ) : answer ? (
               <div className="mt-6">
-                <div className="font-bold text-2xl mb-2">Answer</div>
-                <Answer text={answer} />
+             
 
                 <div className="mt-6 mb-16">
-                  <div className="font-bold text-2xl">Passages</div>
+                  <div className="font-bold text-2xl">json</div>
 
-                  {chunks.map((chunk, index) => (
-                    <div key={index}>
+                  <div>
                       <div className="mt-4 border border-zinc-600 rounded-lg p-4">
-                        <div className="flex justify-between">
-                          <div className="flex items-center">
-                            <Image
-                              className="rounded-lg"
-                              src={getImage(chunk.post_title)}
-                              width={103}
-                              height={70}
-                              alt={chunk.post_title}
-                            />
-                            <div className="ml-4">
-                              <div className="font-bold text-xl">{chunk.post_title}</div>
-                              <div className="mt-1 font-bold text-sm">{chunk.post_date}</div>
-                            </div>
-                          </div>
-                          <a
-                            className="hover:opacity-50 ml-4"
-                            href={chunk.post_url}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            <IconExternalLink />
-                          </a>
+                        <div className="mt-4">
+                          <pre style={{ whiteSpace: "pre-wrap" }}>
+                            {JSON.stringify(answer).replace(/\\([\\"])/g, '$1').replace(/\\n/g, '\n')}
+                          </pre>                        
                         </div>
-                        <div className="mt-4">{chunk.content}</div>
                       </div>
-                    </div>
-                  ))}
+                  </div>
+              
                 </div>
               </div>
             ) : chunks.length > 0 ? (
@@ -414,7 +376,7 @@ export default function Home() {
                 ))}
               </div>
             ) : (
-              <div className="mt-6 text-center text-lg">{`AI-powered search and chat for Tim Urban's blog "Wait But Why."`}</div>
+              <div className="mt-6 text-center text-lg">{`AI-powered search for Company Firmographics`}</div>
             )}
           </div>
         </div>

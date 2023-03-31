@@ -7,40 +7,22 @@ export const Footer: FC = () => {
       <div className="hidden sm:flex"></div>
 
       <div className="hidden sm:flex italic text-sm">
-        Created by
+        Made by
         <a
           className="hover:opacity-50 mx-1"
-          href="https://twitter.com/mckaywrigley"
+          href="https://twitter.com/sharathr"
           target="_blank"
           rel="noreferrer"
         >
-          Mckay Wrigley
+          @sharathr
         </a>
-        based on
-        <a
-          className="hover:opacity-50 ml-1"
-          href="https://twitter.com/waitbutwhy"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Tim Urban
-        </a>
-        {`'s blog`}
-        <a
-          className="hover:opacity-50 ml-1"
-          href="https://waitbutwhy.com/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Wait But Why
-        </a>
-        .
+     
       </div>
 
       <div className="flex space-x-4">
         <a
           className="flex items-center hover:opacity-50"
-          href="https://twitter.com/mckaywrigley"
+          href="https://twitter.com/sharathr"
           target="_blank"
           rel="noreferrer"
         >
@@ -49,7 +31,7 @@ export const Footer: FC = () => {
 
         <a
           className="flex items-center hover:opacity-50"
-          href="https://github.com/mckaywrigley/wait-but-why-gpt"
+          href="https://github.com/rsharath"
           target="_blank"
           rel="noreferrer"
         >

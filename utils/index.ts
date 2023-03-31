@@ -19,14 +19,14 @@ export const OpenAIStream = async (prompt: string, apiKey: string) => {
       messages: [
         {
           role: "system",
-          content: "You are a helpful assistant that accurately answers queries using Wait But Why posts. Use the text provided to form your answer, but avoid copying word-for-word from the posts. Try to use your own words when possible. Keep your answer under 5 sentences. Be accurate, helpful, concise, and clear."
+          content: "You are a helpful assistant that provides firmographic data. Provide a summary for the company requested with: Name: name of company, Status: private or public, Website: company website, Category, Employees, Revenue with year in brackets, Industry, Type of Customer like B2B or B2C or Non Profit etc., and Location. For private companies alone, provide a field called Funding with amount of capital raised and what funding round and year it is. Omit Funding for public companies. Be accurate. Provide all this information formatted as a JSON document, provide new line after each field"
         },
         {
           role: "user",
           content: prompt
         }
       ],
-      max_tokens: 150,
+      max_tokens: 250,
       temperature: 0.0,
       stream: true
     })

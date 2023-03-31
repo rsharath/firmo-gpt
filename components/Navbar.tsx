@@ -9,7 +9,7 @@ export const Navbar: FC = () => {
       <div className="font-bold text-2xl flex items-center">
         <a
           className="flex hover:opacity-50 items-center"
-          href="https://wait-but-why-gpt.vercel.app"
+          href=""
         >
           <Image
             className="hidden sm:flex"
@@ -17,7 +17,7 @@ export const Navbar: FC = () => {
             alt="The Network State GPT"
             height={40}
           />
-          <div className="ml-2">Wait But Why GPT</div>
+          <div className="ml-2">Firmo-GPT</div>
         </a>
       </div>
       <div>
@@ -27,12 +27,6 @@ export const Navbar: FC = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <div className="hidden sm:flex">WaitButWhy.com</div>
-
-          <IconExternalLink
-            className="ml-1"
-            size={20}
-          />
         </a>
       </div>
     </div>
