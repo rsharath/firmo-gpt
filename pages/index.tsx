@@ -19,6 +19,7 @@ export default function Home() {
 
   const [showSettings, setShowSettings] = useState<boolean>(false);
   const [mode, setMode] = useState<"search" | "chat">("chat");
+
   const [matchCount, setMatchCount] = useState<number>(5);
   const [apiKey, setApiKey] = useState<string>("");
 
@@ -76,6 +77,8 @@ export default function Home() {
 
     setLoading(true);
 
+    // fetch from supabase
+    /*
     const searchResponse = await fetch("/api/search", {
       method: "POST",
       headers: {
@@ -92,15 +95,15 @@ export default function Home() {
     const results: WBWChunk[] = await searchResponse.json();
 
     setChunks(results);
-
+*/
+    const results = [];
     const prompt = endent`
     Use the following passages to provide an answer to the query: "${query}"
 
     ${results?.map((d: any) => d.content).join("\n\n")}
-    `;
-    
-    //const prompt = "${query}";
+    `;  
 
+    //call openai 
     const answerResponse = await fetch("/api/answer", {
       method: "POST",
       headers: {
@@ -137,7 +140,8 @@ export default function Home() {
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       if (mode === "search") {
-        handleSearch();
+       // handleSearch();
+       handleAnswer();
       } else {
         handleAnswer();
       }
@@ -287,7 +291,7 @@ export default function Home() {
 
                 <button>
                   <IconArrowRight
-                    onClick={mode === "search" ? handleSearch : handleAnswer}
+                    onClick={mode === "search" ? handleAnswer : handleAnswer}
                     className="absolute right-2 top-2.5 h-7 w-7 rounded-full bg-blue-500 p-1 hover:cursor-pointer hover:bg-blue-600 sm:right-3 sm:top-3 sm:h-10 sm:w-10 text-white"
                   />
                 </button>
