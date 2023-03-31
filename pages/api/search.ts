@@ -1,4 +1,3 @@
-/*
 import { supabaseAdmin } from "@/utils";
 
 export const config = {
@@ -49,4 +48,3 @@ const handler = async (req: Request): Promise<Response> => {
 };
 
 export default handler;
-*/
