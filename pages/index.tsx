@@ -183,6 +183,9 @@ export default function Home() {
     const WBW_KEY = localStorage.getItem("WBW_KEY");
     const WBW_MATCH_COUNT = localStorage.getItem("WBW_MATCH_COUNT");
     const WBW_MODE = localStorage.getItem("WBW_MODE");
+    if (process.env.NEXT_PUBLIC_OPENAI_API_KEY) {
+     setApiKey(process.env.NEXT_PUBLIC_OPENAI_API_KEY);
+    }
 
     if (WBW_KEY) {
       setApiKey(WBW_KEY);
