@@ -21,8 +21,10 @@ export default function Home() {
   const [mode, setMode] = useState<"search" | "chat">("chat");
 
   const [matchCount, setMatchCount] = useState<number>(5);
-  const [apiKey, setApiKey] = useState<string>("");
-
+  const [apiKey, setApiKey] = useState(
+    process.env.NEXT_PUBLIC_OPENAI_API_KEY || ""
+  );
+  
   const handleSearch = async () => {
     if (!apiKey) {
       alert("Please enter an API key.");
