@@ -172,6 +172,9 @@ export default function Home() {
   };
 
   useEffect(() => {
+    if (process.env.NEXT_PUBLIC_OPENAI_API_KEY) {
+      setApiKey(process.env.NEXT_PUBLIC_OPENAI_API_KEY);
+    }
     if (matchCount > 10) {
       setMatchCount(10);
     } else if (matchCount < 1) {
