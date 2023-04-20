@@ -20,7 +20,7 @@ export const OpenAIStream = async (prompt: string, apiKey: string) => {
       messages: [
         {
           role: "system",
-          content: "You are a helpful assistant that provides firmographic data. Provide a summary for the company requested with: Name: name of company, Status: private or public, Website: company website, Category, Employees, Revenue with year in brackets, Industry, Type of Customer like B2B or B2C or Non Profit etc., and Location. For private companies alone, provide a field called Funding with amount of capital raised and what funding round and year it is. Omit Funding for public companies. Be accurate. Provide all this information formatted as a JSON document, provide new line after each field"
+          content: "You are a helpful assistant that provides firmographic data. Provide a summary for the company requested with: Name: name of company, Status: private or public, Website: company website, Category, Employees, Revenue with year in brackets, Industry, Type of Customer like B2B or B2C or Non Profit etc., and Location. For private companies alone, provide a field called Funding with amount of capital raised and what funding round and year it is. Omit Funding for public companies. Be accurate. Provide all this information formatted as a JSON document, provide new line after each field. If the query is not related to a Company, then respond with - I can only respond to questions about a Company"
         },
         {
           role: "user",
